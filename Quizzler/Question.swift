@@ -8,6 +8,14 @@
 import Foundation
 
 class Question {
+    let questionText: String
+    let answer:  Bool
+    
+    //create the initializer/constructor for the Question
+    init(text: String, correctAnswer: Bool) {
+        questionText = text
+        answer = correctAnswer
+    }
     
 }
 
