@@ -17,6 +17,8 @@ class Question {
         answer = correctAnswer
     }
     
+//    let question = Question(text: "Are you ok?", correctAnswer: true)
+    
 }
 
 
