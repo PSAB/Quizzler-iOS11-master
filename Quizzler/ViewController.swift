@@ -9,6 +9,7 @@ import UIKit
 class ViewController: UIViewController {
     
     //Place your instance variables here
+    let allQuestions = QuestionBank() //Don't forget parenthesis when init() has no parameters!
     
     
     @IBOutlet weak var questionLabel: UILabel!
