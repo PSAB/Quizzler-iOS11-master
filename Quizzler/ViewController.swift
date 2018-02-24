@@ -35,9 +35,7 @@ class ViewController: UIViewController {
         else if sender.tag == 2 {
             pickedAnswer = false
         }
-        
         checkAnswer()
-  
     }
     
     
@@ -52,7 +50,14 @@ class ViewController: UIViewController {
     
     
     func checkAnswer() {
+        let correctAnswer = allQuestions.list[0].answer
         
+        if pickedAnswer == correctAnswer {
+            print("You got the correct answer!")
+        }
+        else {
+            print("Wrong, in Trump's voice")
+        }
     }
     
     
