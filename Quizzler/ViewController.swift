@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         // present the first question
         let firstQuestion = allQuestions.list[questionNumber] // This used to be zero
         questionLabel.text = firstQuestion.questionText
-        progressLabel.text = "\(questionNumber + 1)/13"
+        progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
         
     }
 
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         if questionNumber < 13 {
             questionLabel.text = allQuestions.list[questionNumber].questionText
             
-            progressLabel.text = "\(questionNumber + 1)/13"
+            progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
         }
         else {
 //            print("end of quiz")
