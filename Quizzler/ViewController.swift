@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         // present the first question
         let firstQuestion = allQuestions.list[questionNumber] // This used to be zero
         questionLabel.text = firstQuestion.questionText
+        progressLabel.text = "\(questionNumber + 1)/13"
         
     }
 
@@ -39,12 +40,7 @@ class ViewController: UIViewController {
         }
         checkAnswer()
         questionNumber += 1
-//        if questionNumber < 12 {
-//            questionNumber += 1
-//        }
-//        else {
-//            questionNumber = 0
-//        }
+//        progressLabel.text = "\(questionNumber)/13"
         nextQuestion()
         // You can also use print statements in the console to debug
         
@@ -60,6 +56,8 @@ class ViewController: UIViewController {
         // Update the UILabel to display the current question
         if questionNumber < 13 {
             questionLabel.text = allQuestions.list[questionNumber].questionText
+            
+            progressLabel.text = "\(questionNumber + 1)/13"
         }
         else {
 //            print("end of quiz")
@@ -94,7 +92,10 @@ class ViewController: UIViewController {
     
     
     func startOver() {
-       
+        print("Starting over...")
+        questionNumber = 0
+        nextQuestion()
+        
     }
     
 
