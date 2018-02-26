@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var pickedAnswer: Bool = false
     //represents the current question being asked. REPRESENTS THE STATE
     var questionNumber : Int = 0
+    //represents the visible score of the user
+    var score : Int = 0
     
     
     @IBOutlet weak var questionLabel: UILabel!
@@ -24,8 +26,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // present the first question
-        let firstQuestion = allQuestions.list[questionNumber] // This used to be zero
-        questionLabel.text = firstQuestion.questionText
+//        let firstQuestion = allQuestions.list[questionNumber] // This used to be zero
+//        questionLabel.text = firstQuestion.questionText
+        nextQuestion()
         progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
         
     }
@@ -84,6 +87,8 @@ class ViewController: UIViewController {
         
         if pickedAnswer == correctAnswer {
             print("You got the correct answer!")
+            // increment the score of the user
+            score += 1
         }
         else {
             print("Wrong, in Trump's voice")
