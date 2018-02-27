@@ -29,7 +29,6 @@ class ViewController: UIViewController {
 //        let firstQuestion = allQuestions.list[questionNumber] // This used to be zero
 //        questionLabel.text = firstQuestion.questionText
         nextQuestion()
-        progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
         
     }
 
@@ -43,7 +42,6 @@ class ViewController: UIViewController {
         }
         checkAnswer()
         questionNumber += 1
-//        progressLabel.text = "\(questionNumber)/13"
         nextQuestion()
         // You can also use print statements in the console to debug
         
@@ -51,7 +49,12 @@ class ViewController: UIViewController {
     
     
     func updateUI() {
-      
+        scoreLabel.text = "Score: \(score)"
+        
+        progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
+        
+        progressBar.frame.size.width = (CGFloat(questionNumber + 1)) * (self.view.frame.size.width / CGFloat(allQuestions.list.count))
+        
     }
     
 
@@ -59,8 +62,11 @@ class ViewController: UIViewController {
         // Update the UILabel to display the current question
         if questionNumber < 13 {
             questionLabel.text = allQuestions.list[questionNumber].questionText
+            // update the score UI
             
-            progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
+            //update the progress Label
+            updateUI()
+
         }
         else {
 //            print("end of quiz")
@@ -89,6 +95,7 @@ class ViewController: UIViewController {
             print("You got the correct answer!")
             // increment the score of the user
             score += 1
+            updateUI()
         }
         else {
             print("Wrong, in Trump's voice")
@@ -98,6 +105,7 @@ class ViewController: UIViewController {
     
     func startOver() {
         print("Starting over...")
+        score = 0
         questionNumber = 0
         nextQuestion()
         
